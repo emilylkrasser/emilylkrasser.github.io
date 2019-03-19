@@ -1,6 +1,7 @@
 /*
  * File:        Wake.js
- * Programmers: Kyla            March 10, 2019
+ * Programmers: Kyla            March 15, 2019
+ *              Emily           March 17, 2019
  *
  */
 
@@ -12,34 +13,26 @@
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function Wake(spriteTexture, position, size, forwardDir, speed)
+function Wake(spriteTexture, position, forwardDir)
 {
-    this.mWake = new LightRenderable(spriteTexture);
-    this.mWake.getXform().setPosition(position[0], position[1]);
-    this.mWake.getXform().setSize(size[0], size[1]);
+    this.mRenderable = new SpriteAnimateRenderable(spriteTexture);
+    this.mRenderable.getXform().setPosition(position[0], position[1]);
+    this.mRenderable.getXform().setSize(8, 4);
+    this.mRenderable.setSpriteSequence(
+            256,   // offset from top-left
+            0, // offset from top-left
+            677,
+            256,
+            6,      // number of elements in sequence
+            0);
+    this.mRenderable.setAnimationSpeed(16);
     
-    this.mSpeed = speed;
-    
-    this.mLifeSpan = 60;
-    this.mLifeTimer = 0;
-    
-    GameObject.call(this, this.mWake);
-    
-    this.mCurrentFrontDir = vec2.fromValues(forwardDir[0], forwardDir[1]);
+    Projectile.call(this, this.mRenderable, forwardDir, 0.01, 90);
 }
-gEngine.Core.inheritPrototype(Wake, GameObject);
+gEngine.Core.inheritPrototype(Wake, Projectile);
 
 Wake.prototype.update = function()
 {
-    GameObject.prototype.update.call(this);
-    
-    var pos = this.getXform().getPosition();
-    vec2.scaleAndAdd(pos, pos, this.getCurrentFrontDir(), this.mSpeed);
-    
-    this.mLifeTimer++;
-};
-
-Wake.prototype.isDead = function()
-{
-    return this.mLifeTimer > this.mLifeSpan;
+    this.mRenderable.updateAnimation();
+    Projectile.prototype.update.call(this);
 };

@@ -75,6 +75,8 @@
         <script type="text/javascript" src="src/Engine/Renderables/LightRenderable.js"></script>
         <script type="text/javascript" src="src/Engine/Renderables/IllumRenderable.js"></script>
         <script type="text/javascript" src="src/Engine/Renderables/ParticleRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/UIRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/UISpriteRenderable.js"></script>
         <!-- Shadows -->
         <script type="text/javascript" src="src/Engine/Shadows/ShadowCaster.js"></script>
         <script type="text/javascript" src="src/Engine/Shadows/ShadowReceiver.js"></script>
@@ -104,6 +106,9 @@
         <script type="text/javascript" src="src/Engine/Shaders/IllumShader.js"></script>
         <script type="text/javascript" src="src/Engine/Shaders/ShaderMaterial.js"></script>
         <script type="text/javascript" src="src/Engine/Shaders/ShadowCasterShader.js"></script>
+        <script type="text/javascript" src="src/Engine/UIShaders/UISimpleShader.js"></script>
+        <script type="text/javascript" src="src/Engine/UIShaders/UITextureShader.js"></script>
+        <script type="text/javascript" src="src/Engine/UIShaders/UISpriteShader.js"></script>
         <!-- Camera -->
         <script type="text/javascript" src="src/Engine/Cameras/Camera.js"></script>
         <script type="text/javascript" src="src/Engine/Cameras/Camera_Manipulation.js"></script>
@@ -142,22 +147,42 @@
         <script type="text/javascript" src="src/Engine/UI/UIItemSlotSet.js"></script>
         
         <!-- Game Objects -->
-        <script type="text/javascript" src="src/MyGame/Objects/Ship.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/Hero.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/PirateShip.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/Storm.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/StormSet.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/Rock.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/RockSet.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/SunkenTreasure.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/SunkenTreasureSet.js"></script>
+        <!-- Characters -->
+        <script type="text/javascript" src="src/MyGame/Objects/Ships/Ship.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Ships/Ship_Update.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Ships/PlayerShip.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Ships/PirateShip.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Ships/PirateShipSet.js"></script>
+        <!-- Character Related -->
+        <script type="text/javascript" src="src/MyGame/Objects/Projectile.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/ProjectileSet.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Cannonball.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/PopUp.js"></script>
         <script type="text/javascript" src="src/MyGame/Objects/Wake.js"></script>
-        <script type="text/javascript" src="src/MyGame/Objects/WakeSet.js"></script>
+        <!-- Environment -->
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/Storm.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Charybdis.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/StormSet.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/Rock.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/RockSet.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/SunkenTreasure.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/SunkenTreasureSet.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/Waterfall.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Environment/WaterfallSet.js"></script>
+        <!-- Other -->
+        <script type="text/javascript" src="src/MyGame/Objects/SpawnPoint.js"></script>
         <script type="text/javascript" src="src/MyGame/Objects/GameState.js"></script>
+        
+        <!-- Utils -->
+        <script type="text/javascript" src="src/MyGame/Utils/JSONParser.js"></script>
         
         <!-- Game Scenes -->
         <script type="text/javascript" src="src/MyGame/Levels/StartMenu.js"></script>
+        <script type="text/javascript" src="src/MyGame/Levels/Credits.js"></script>
+        <script type="text/javascript" src="src/MyGame/Levels/Controls.js"></script>
+        <script type="text/javascript" src="src/MyGame/Levels/PlayMenu.js"></script>
         <script type="text/javascript" src="src/MyGame/Levels/MainGame.js"></script>
+        <script type="text/javascript" src="src/MyGame/Levels/MainGame_Update.js"></script>
         <script type="text/javascript" src="src/MyGame/Levels/MainGame_Lights.js"></script>
         <script type="text/javascript" src="src/MyGame/Levels/GameOver.js"></script>
         <script type="text/javascript" src="src/MyGame/Levels/WinScreen.js"></script>

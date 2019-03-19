@@ -31,33 +31,29 @@ MainGame.prototype._createALight = function (pos, color, n, f, intensity) {
 MainGame.prototype._initializeLights = function () {
     this.mGlobalLightSet = new LightSet();
 
-    var l = this._createALight(
-        [0, 0, 5],       // Hero
-        [0.2, 0.2, 0.2, 0.5],  // some color
-        0, 20,             // Near and Far
-        3.5                // intensity
-    );
-    this.mGlobalLightSet.addToSet(l);
+    this.mGlobalLightSet.addToSet(this.mHero.mLight);
+
+};
+
+MainGame.prototype.updatePirateLight = function()
+{
+    var OnScreenPirates = this.mPirateSet.getShipsOnCamera(this.mCamera);
+
+    this.mBG.removeAllLights();
+    this.mBG.addLight(this.mHero.mLight);
+    for (var i = 0; i < this.mPirateSet.size(); i++)
+    {
+        var light = this.mPirateSet.getObjectAt(i).mLight
+        this.mBG.addLight(light);
+    }
+
+};
+
+MainGame.prototype.updateAmbientLighting = function()
+{
+    var newLight = this.kMaxBrightness - (this.kMaxBrightness - this.kMinBrightness) * this.mElapsedTime / this.kDarkestTime;
     
-    l = this._createALight(
-        [0, 3, 8],       // pirate
-        [0.2, 0.2, 0.2, 0.5],  // some color
-        0, 15,             // Near and Far
-        2.75               // intensity
-    );
-    this.mGlobalLightSet.addToSet(l);
-};
-
-MainGame.prototype.updateHeroLight = function(hero)
-{
-    var heroPos = hero.getXform().getPosition();
-    this.mGlobalLightSet.getLightAt(0).setXPos(heroPos[0]);
-    this.mGlobalLightSet.getLightAt(0).setYPos(heroPos[1]);
-};
-
-MainGame.prototype.updatePirateLight = function(pirate)
-{
-    var piratePos = pirate.getXform().getPosition();
-    this.mGlobalLightSet.getLightAt(1).setXPos(piratePos[0]);
-    this.mGlobalLightSet.getLightAt(1).setYPos(piratePos[1]);
+    newLight = Math.max(newLight, this.kMinBrightness)
+    
+    gEngine.DefaultResources.setGlobalAmbientIntensity(newLight);
 };

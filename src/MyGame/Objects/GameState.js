@@ -22,17 +22,17 @@ GameState.prototype.update = function()
     {
         gEngine.GameLoop.stop();
     }
-    if(this.mHero.getDamage() >= 100) 
+    if(this.mHero.getHealth() <= 0) 
     {
         this.setGameOver(true);
     }
-    if(this.mTreasureCollected >= 3)
+    if(this.mTreasureCollected >= 7)
     {
         this.setGameWin(true);
     }
     if((this.mTimer % 60) === 0) 
     {
-        //this.mHero.regenDamage();
+        //this.mHero.regenHealth();
     }
 };
 
@@ -40,7 +40,7 @@ GameState.prototype.update = function()
 // treasures collected.
 GameState.prototype.displayStatus = function() 
 {
-    var status = "Damage: " + this.mHero.getDamage() + "  Treasure: " 
+    var status = "Health: " + this.mHero.getHealth() + "  Treasure: " 
             + this.mTreasureCollected;
     return status;
 };
